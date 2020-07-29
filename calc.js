@@ -39,30 +39,42 @@ function selectOperacion(op){
     opeActual = '';
 }
 
-function calcular(){
-    var calculo;
-    const anterior = parseFloat(opeAnterior);
-    const actual = parseFloat(opeActual);
-    if(isNaN(anterior) || isNaN(actual)) return;
-    switch(operacion){
-        case '+':
-            calculo = anterior + actual;
-            break;
-        case '-':
-            calculo = anterior - actual;
-            break;
-        case 'x':
-            calculo = anterior * actual;
-            break;
-        case '/':
-            calculo = anterior / actual;
-            break;
-        default:
-            return;
-    }
-    opeActual = calculo;
-    operacion = undefined;
-    opeAnterior = '';
+
+const historial = (anterio, operacion, actual) => {
+	return `${anterio} ${operacion} ${actual}`;
+};
+
+function calcular() {
+	var calculo;
+	const anterior = parseFloat(opeAnterior);
+	const actual = parseFloat(opeActual);
+	if (isNaN(anterior) || isNaN(actual)) return;
+	switch (operacion) {
+		case '+':
+			console.log(historial(anterior, operacion, actual));
+			calculo = anterior + actual;
+			break;
+		case '-':
+			console.log(historial(anterior, operacion, actual));
+
+			calculo = anterior - actual;
+			break;
+		case 'x':
+			console.log(historial(anterior, operacion, actual));
+
+			calculo = anterior * actual;
+			break;
+		case '/':
+			console.log(historial(anterior, operacion, actual));
+
+			calculo = anterior / actual;
+			break;
+		default:
+			return;
+	}
+	opeActual = calculo;
+	operacion = undefined;
+	opeAnterior = '';
 }
 
 function agregarNumero(num){
